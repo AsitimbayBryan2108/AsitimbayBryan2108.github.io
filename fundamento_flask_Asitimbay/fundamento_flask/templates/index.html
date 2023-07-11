@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Currículum Vitae</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <h1>Mi Currículum</h1>
+  
+  <div class="section">
+    <h2>Información Personal</h2>
+    <img src="{{ url_for('static', filename='images/Mi_Foto_F.jpg') }}" alt="Mi foto" width="150" height="150">
+    <p><strong>Nombre:</strong> {{ data.nombre }}</p>
+    <p><strong>Fecha de nacimiento:</strong> {{ data.fecha_nacimiento }}</p>
+    <p><strong>Dirección:</strong> {{ data.direccion }}</p>
+    <p><strong>Teléfono:</strong> {{ data.telefono }}</p>
+    <p><strong>Email:</strong> {{ data.email }}</p>
+  </div>
+  
+  <div class="section">
+    <h2>Experiencia Laboral</h2>
+    {% for experiencia in data.experiencia %}
+    <h3>{{ experiencia.empresa }}</h3>
+    <p><strong>Fecha:</strong> {{ experiencia.periodo }}</p>
+    <ul>
+        <li><strong>Empresa:</strong> {{ experiencia.empresa }}</li>
+        <li><strong>Puesto:</strong> {{ experiencia.puesto }}</li>
+        <li><strong>Periodo:</strong> {{ experiencia.periodo }}</li>
+        <li><strong>Descripción:</strong> {{ experiencia.descripcion }}</li>
+    </ul>
+    {% endfor %}
+  </div>
+  
+  <div class="section">
+    <h2>Educación</h2>
+    {% for educacion in data.educacion %}
+    <h3>{{ educacion.anio }}</h3>
+    <ul>
+        <li><strong>Colegio/Universidad:</strong> {{ educacion.colegio or educacion.universidad }}</li>
+        <li><strong>Título:</strong> {{ educacion.titulo }}</li>
+        {% if educacion.semestre %}
+        <li><strong>Semestre:</strong> {{ educacion.semestre }}</li>
+        {% endif %}
+    </ul>
+    {% endfor %}
+  </div>
+
+  <div class="section">
+    <h2>Habilidades</h2>
+    <ul>
+      {% for habilidad in data.habilidades %}
+        <li><strong>{{ habilidad.nombre }}:</strong> {{ habilidad.descripcion }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Proyectos</h2>
+    {% for proyecto in data.proyectos %}
+    <h3>{{ proyecto.nombre }}</h3>
+    <p>{{ proyecto.descripcion }}</p>
+    
+    <a href="{{ proyecto.enlace }}" target="_blank">
+      <div style="text-align: center;">
+        <img src="{{ url_for('static', filename=proyecto.imagen) }}" alt="{{ proyecto.nombre }}" width="300" height="150">
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</body>
+</html>
+
+
