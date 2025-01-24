@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma avanzada con accesibilidad total">
+    <title>Plataforma Accesible</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">
+            <span>&#9776;</span> 
+        </div>
+        <h1 id="titulo-pagina">Plataforma Accesible</h1>
+        <nav aria-label="Navegación Principal" id="nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#acerca">Acerca de Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inicio">
+        <section>
+            <h2>Herramientas de Accesibilidad</h2>
+            <div id="configuracion">
+                <button id="modo-contraste">Alto Contraste</button>
+                <button id="aumentar-texto">Aumentar Texto</button>
+                <button id="disminuir-texto">Disminuir Texto</button>
+                <select id="selector-idioma" aria-label="Seleccionar Idioma">
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                    <option value="fr">Francés</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="contenido-dinamico">
+            <h2>Bienvenido</h2>
+            <p>Este sitio está diseñado para ser accesible a todos los usuarios.</p>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <p>Contacto: <a href="mailto:accesible@correo.com">accesible@correo.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
